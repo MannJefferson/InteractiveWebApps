@@ -88,7 +88,7 @@ class Task {
     static removeTask(date) {
       const tasks = Store.getTasks();
   
-      tasks.forEach((date, index) => {
+      tasks.forEach((task, index) => {
         if(task.date === date) {
           tasks.splice(index, 1);
         }
