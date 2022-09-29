@@ -131,6 +131,12 @@ class Task {
       UI.clearFields();
     }
   });
+
+
+  document.querySelector('#todo-list').addEventListener('click', (e) => {
+    UI.completeTask(e.target);
+    });
+
   
   // Event: Remove a toDo or task
   document.querySelector('#todo-list').addEventListener('click', (e) => {
@@ -151,6 +157,6 @@ class Task {
     UI.showAlert('toDO Removed', 'success');
   });
 
-  document.querySelector('#todo-list').addEventListener('click', (e) => {
-    UI.completeTask(e.target);
-    });
+  // document.querySelector('#todo-list').addEventListener('click', (e) => {
+  //   UI.completeTask(e.target);
+  //   });

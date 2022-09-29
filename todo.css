@@ -6,3 +6,7 @@ body {
     background-color: aliceblue;
     
 }
+
+.complete{
+    text-decoration: dotted;
+}
