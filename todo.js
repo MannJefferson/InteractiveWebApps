@@ -29,6 +29,17 @@ class Task {
       list.appendChild(row);
     }
   
+
+    static completeTask(el) {
+      if (el.classList.contains('complete')) {
+          el.parentElement.parentElement.style.setProperty("text-decoration", "line-through");
+          //  document.querySelectorAll('complete')
+          //.textContent='redo';
+      }
+         }
+
+
+
     static deleteTask(el) {
       if(el.classList.contains('delete')) {
         el.parentElement.parentElement.remove();
@@ -37,18 +48,7 @@ class Task {
   
 
 
-    static completeTask(el) {
-        if (el.classList.contains('complete')) {
-            el.parentElement.parentElement.style.setProperty("text-decoration", "line-through");
-            //  document.querySelectorAll('complete')
-            //.textContent='redo';
-        }
-           }
-
-
-
-
-    static showAlert(message, className) {
+       static showAlert(message, className) {
       const div = document.createElement('div');
       div.className = `alert alert-${className}`;
       div.appendChild(document.createTextNode(message));
@@ -57,7 +57,7 @@ class Task {
       container.insertBefore(div, form);
   
       // Vanish in 3 seconds
-      setTimeout(() => document.querySelector('.alert').remove(), 3000);
+      setTimeout(() => document.querySelector('.alert').remove(), 2000);
     }
   
     static clearFields() {
@@ -85,19 +85,19 @@ class Task {
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
   
-    static removeTask(date) {
-      const tasks = Store.getTasks();
+     static removeTask(date) {
+       const tasks = Store.getTasks();
   
-      tasks.forEach((task, index) => {
-        if(task.date === date) {
-          tasks.splice(index, 1);
-        }
-      });
+     tasks.forEach((task, index) => {
+         if(task.date === date) {
+           tasks.splice(index, 1);
+         }
+       });
   
-      localStorage.setItem('tasks', JSON.stringify(tasks));
+       localStorage.setItem('tasks', JSON.stringify(tasks));
+     }
     }
-  }
-  
+   
   // Event to display toDo tasks
   document.addEventListener('DOMContentLoaded', UI.displayTasks);
   
@@ -113,7 +113,7 @@ class Task {
   
     // Validate
     if(title === '' || date === '') {
-      UI.showAlert('Please fill in all fields', 'danger');
+      UI.showAlert('Please complete all fields to add Task', 'danger');
     } else {
       // Instatiate toDo
       const task = new Task(title, date);
@@ -138,9 +138,9 @@ class Task {
     UI.deleteTask(e.target);
 
 
-    document.querySelector('#todo-list').addEventListener('click', (e) => {
-        UI.completeTask(e.target)
-    });
+    // document.querySelector('#todo-list').addEventListener('click', (e) => {
+    //     UI.completeTask(e.target);
+    //     });
 
 
   
@@ -150,3 +150,7 @@ class Task {
     // Show success message
     UI.showAlert('toDO Removed', 'success');
   });
+
+  document.querySelector('#todo-list').addEventListener('click', (e) => {
+    UI.completeTask(e.target);
+    });
