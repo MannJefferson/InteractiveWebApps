@@ -20,9 +20,10 @@ class Task {
       const row = document.createElement('tr');
   
       row.innerHTML = `
+      <td><input type="checkbox" id="hide" > </td>  
         <td>${task.title}</td>
         <td>${task.date}</td>
-        <td><a href="#" class="btn btn-primary btn-sm complete">complete</a></td>
+       // <td><a href="#" class="btn btn-primary btn-sm complete">complete</a></td>
         <td><a href="#" class="btn btn-warning btn-sm delete">delete</a></td>
       `;
   
@@ -158,6 +159,4 @@ class Task {
   //   UI.completeTask(e.target);
   //   });
 
-    document.getElementById('complete').addEventListener('click', (e) => {
-        UI.completeTask(e.target);
-    });
+    
