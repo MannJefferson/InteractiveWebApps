@@ -32,9 +32,9 @@ class Task {
 
     static completeTask(el) {
       if (el.classList.contains('complete')) {
-          el.parentElement.parentElement.style.setProperty("text-decoration", "line-through");
-          //  document.querySelectorAll('complete')
-          //.textContent='redo';
+          //el.parentElement.parentElement.style.setProperty("text-decoration", "line-through");
+          console.log()
+          
       }
          }
 
@@ -133,10 +133,7 @@ class Task {
   });
 
 
-  document.querySelector('#todo-list').addEventListener('click', (e) => {
-    UI.completeTask(e.target);
-    });
-
+ 
   
   // Event: Remove a toDo or task
   document.querySelector('#todo-list').addEventListener('click', (e) => {
@@ -160,3 +157,7 @@ class Task {
   // document.querySelector('#todo-list').addEventListener('click', (e) => {
   //   UI.completeTask(e.target);
   //   });
+
+    document.getElementById('complete').addEventListener('click', (e) => {
+        UI.completeTask(e.target);
+    });

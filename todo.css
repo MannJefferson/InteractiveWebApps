@@ -1,5 +1,7 @@
 body {
-    background-color:#4682B4 ;
+        background-image: url("/Images/tasklist.jpg") ;
+        background-repeat: repeat;
+        
 }
 
 .container{
