@@ -23,7 +23,7 @@ class UI {
       <td><input type="checkbox" id="hide" > </td>  
         <td>${task.title}</td>
         <td>${task.date}</td>
-        <td><a href="#" class="btn btn-warning btn-sm delete">delete</a></td>
+        <td><a href="#" class="btn btn-danger btn-sm delete">delete</a></td>
       `;
     list.appendChild(row);
   }
